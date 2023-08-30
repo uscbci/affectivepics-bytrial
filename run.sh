@@ -63,7 +63,7 @@ echo Looking in /input/logs:
 ls ${INPUT_DIR}/logs
 
 #unzip reorder file
-unzip ${DATA_DIR}/AffectivePics_StimReorder.zip -d ${DATA_DIR} -o 
+unzip -o ${DATA_DIR}/AffectivePics_StimReorder.zip -d ${DATA_DIR}
 
 #echo Lets look inside $INPUT_DIR
 ls $INPUT_DIR

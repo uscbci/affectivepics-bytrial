@@ -2,7 +2,7 @@
 	"name": "affectivepics-bytrial",
 	"label": "BCI: Affective Pictures analysis by individual trial",
 	"description": "This gear does the basic GLM analysis for the Affective Intelligence project.",
-	"version": "1.4",
+	"version": "1.5",
 	"inputs": {
 		"api-key": {
 			"base": "api-key"
