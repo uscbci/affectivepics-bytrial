@@ -29,7 +29,6 @@ export FSLDIR=/usr/local/fsl
 source $FSLDIR/etc/fslconf/fsl.sh
 export USER=Flywheel
 source ~/.bashrc
-pip install pandas
 
 
 ##############################################################################
@@ -100,7 +99,7 @@ for RUN in {1..3}
 do
 	echo -e "\n\n${CONTAINER} Beginning analysis for affective pictures run ${RUN}"
 
-	INPUT_DATA=`eval 'echo $'func_affectivepictures_r${RUN} `
+	INPUT_DATA=${INPUT_DIR}/${subject}_affpics${RUN}_cleaned_standard.nii.gz
 	FEAT_OUTPUT_DIR=${OUTPUT_DIR}/${subject}_affectivepictures_run${RUN}.feat
 	NEUTRAL1_EV=${DATA_DIR}/logs/${subject}_affectivepictures_run${RUN}_Neutral1.txt
   NEUTRAL2_EV=${DATA_DIR}/logs/${subject}_affectivepictures_run${RUN}_Neutral2.txt
@@ -124,6 +123,7 @@ do
 	cp ${TEMPLATE} ${DESIGN_FILE}
 
   #Check number of timepoints in data
+  echo INPUT DATA is ${INPUT_DATA}
   NUMTIMEPOINTS=`fslinfo ${INPUT_DATA} | grep ^dim4 | awk {'print $2'}`
 
   #Should be 120 for these runs
